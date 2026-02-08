@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AI News Extractor</string>
+    <string-array name="ai_options">
+        <item>ChatGPT</item>
+        <item>DeepSeek</item>
+        <item>Aimlapi</item>
+    </string-array>
+</resources>
