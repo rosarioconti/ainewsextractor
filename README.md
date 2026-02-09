@@ -2,7 +2,7 @@ AI News Extractor
 
 Remove ads and cookies from news page using AI, you can choose the model and set your own key
 
-You can modify as mush as you like it, this prototype show how to extract and show the data syntetized. 
+You can modify as much as you like it, this prototype show how to extract and show the data syntetized. 
 
 I used simple chat prompts:
  - Summarize: extract items and images with max 5 line descriptions. remove all ads and cookies.
