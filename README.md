@@ -11,6 +11,13 @@ I used simple chat prompts:
  - Summarize: extract items and images with max 5 line descriptions. remove all ads and cookies.
  - Full: extract all text and images amd remove all ads and cookies.
 
+The Settings
 <img alt="" src="https://raw.githubusercontent.com/rosarioconti/ainewsextractor/refs/heads/main/images/00_main_settings.jpg" width="200px">
+
+The Problem
 <img alt="" src="https://raw.githubusercontent.com/rosarioconti/ainewsextractor/refs/heads/main/images/01_news_example.jpg" width="200px">
+
+The Solution
+<img alt="" src="https://raw.githubusercontent.com/rosarioconti/ainewsextractor/refs/heads/main/images/02_news_to_select.png" width="200px">
+<img alt="" src="https://raw.githubusercontent.com/rosarioconti/ainewsextractor/refs/heads/main/images/02_news_to_select_with.png" width="200px">
 <img alt="missing" src="https://raw.githubusercontent.com/rosarioconti/ainewsextractor/refs/heads/main/images/03_news_example_without_ads.jpg" width="200px">
