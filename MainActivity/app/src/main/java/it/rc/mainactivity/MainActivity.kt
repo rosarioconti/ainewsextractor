@@ -45,10 +45,11 @@ class MainActivity : AppCompatActivity() {
 
             val isSummary = prefs.getBoolean("summary_mode", false)
             val aiType = prefs.getString("ai_type", "ChatGPT") ?: "ChatGPT"
+            val language = prefs.getString("language", "EN, English") ?: "EN, English"
             val key = prefs.getString("api_key", "") ?: ""
 
             val provider = UniversalAiProvider(key, aiType)
-            val aiResultHtml = provider.processContent(rawHtml, isSummary)
+            val aiResultHtml = provider.processContent(rawHtml, isSummary, language)
 
             withContext(Dispatchers.Main) {
                 webView.loadDataWithBaseURL(null, aiResultHtml, "text/html", "UTF-8", null)
@@ -59,11 +60,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupSettingsUI() {
         val modeGroup = findViewById<RadioGroup>(R.id.modeGroup)
         val aiSpinner = findViewById<Spinner>(R.id.aiSpinner)
+        val languageSpinner = findViewById<Spinner>(R.id.languageSpinner)
         val apiKeyInput = findViewById<EditText>(R.id.apiKeyInput)
         val saveBtn = findViewById<Button>(R.id.saveBtn)
 
         val savedMode = prefs.getBoolean("summary_mode", false)
         val savedAi = prefs.getString("ai_type", "ChatGPT")
+        val savedLanguage = prefs.getString("language", "EN, English")
         val savedKey = prefs.getString("api_key", "")
 
         if (savedMode) {
@@ -76,16 +79,22 @@ class MainActivity : AppCompatActivity() {
         val spinnerPosition = adapter.getPosition(savedAi)
         aiSpinner.setSelection(spinnerPosition)
 
+        val adapterLanguage = languageSpinner.adapter as ArrayAdapter<String>
+        val spinnerLanguagePosition = adapterLanguage.getPosition(savedLanguage)
+        languageSpinner.setSelection(spinnerLanguagePosition)
+
         apiKeyInput.setText(savedKey)
 
         saveBtn.setOnClickListener {
             val isSummary = modeGroup.checkedRadioButtonId == R.id.radioSummary
             val selectedAi = aiSpinner.selectedItem.toString()
+            val selectedLanguage = languageSpinner.selectedItem.toString()
             val key = apiKeyInput.text.toString()
 
             prefs.edit().apply {
                 putBoolean("summary_mode", isSummary)
                 putString("ai_type", selectedAi)
+                putString("language", selectedLanguage)
                 putString("api_key", key)
                 apply()
             }

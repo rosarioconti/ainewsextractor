@@ -1,6 +1,9 @@
 AI News Extractor
 
-Remove ads and cookies from news page using AI, you can choose the model and set your own key
+Intercepts https and also specifically search.app to 
+Remove ads and cookies from news page using AI, you can choose the model and set your own key.
+
+You can also specify what language to translate to.
 
 You can modify as much as you like it, this prototype show how to extract and show the data syntetized. 
 

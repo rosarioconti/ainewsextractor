@@ -35,9 +35,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <RadioButton android:id="@+id/radioFull" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Full Mode" android:checked="true" />
-                <RadioButton android:id="@+id/radioSummary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Synthetize" />
+                <RadioButton android:id="@+id/radioFull" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Full Mode"  />
+                <RadioButton android:id="@+id/radioSummary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Summarize" android:checked="true"/>
             </RadioGroup>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Translate to" android:layout_marginTop="12dp"/>
+            <Spinner
+                android:id="@+id/languageSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/language" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI Provider" android:layout_marginTop="12dp"/>
             <Spinner
@@ -45,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/ai_options" />
+
 
             <EditText
                 android:id="@+id/apiKeyInput"

@@ -22,13 +22,19 @@ class UniversalAiProvider(apiKey: String, val aiType: String) : AiProvider {
         )
     )
 
-    override suspend fun processContent(rawText: String, isSummary: Boolean): String {
+    override suspend fun processContent(rawText: String, isSummary: Boolean, translateTo: String): String {
         val systemPrompt = "You are a web content extractor. Return ONLY valid HTML. No markdown code blocks."
-        val userPrompt = if (isSummary) {
+        var userPrompt = if (isSummary) {
             "Summarize this news: extract items and images with max 5 line descriptions. remove all ads and cookies. \n\n rawtext: $rawText"
         } else {
             "Extract all text and images, remove all ads and cookies. \n\n rawtext: $rawText"
         }
+
+        if(translateTo.compareTo(translateTo) != 0){
+            userPrompt+= "\n\n and translate to ${translateTo}"
+        }
+
+        userPrompt+= "\n\n make sure the image path URL has the full path."
 
         val request = ChatCompletionRequest(
             model = ModelId(if (aiType == "DeepSeek") "deepseek-chat" else "gpt-4o"),

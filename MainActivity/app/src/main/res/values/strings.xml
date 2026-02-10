@@ -5,4 +5,16 @@
         <item>DeepSeek</item>
         <item>Aimlapi</item>
     </string-array>
+    <string-array name="language">
+        <item>EN, English</item>
+        <item>IT, Italian</item>
+        <item>FR, French</item>
+        <item>ES, Spanish</item>
+        <item>DE, German</item>
+        <item>ZH, Chinese</item>
+        <item>JA, Japanese</item>
+        <item>RU, Russian</item>
+        <item>AR, Arabic</item>
+        <item>PT, Portuguese</item>
+    </string-array>
 </resources>
